@@ -89,7 +89,7 @@ def asciiEncode(userCode):
     text = userCode.replace(' ', '')
     for letter in text:
         encodedText = ord(letter)
-        print(encodedText, end=",")
+        print(encodedText, end=" ")
     print()
 
 
