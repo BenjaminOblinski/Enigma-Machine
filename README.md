@@ -6,6 +6,7 @@
 - ASCII
 - Binary
 #### This porgram is intended to aid players of mystery games that often include coded messages and clues. Many ARG games, mystery novels and board games will use ciphers to hide clues. 
+#### There are many encoder/decoder cites avalible on the internet, but most only allow you to use one specific cipher. To use a diffrent cipher you must find a new website. This program combines all the most popular codes in one place
 ### Instructions for Use
 #### Begin by choosing a mode to use the codex in. The codex is capable of encoding (taking regular words and encrypting them) and decoding (taking an encrypted message and changing it to readable english. Type 'e' to encode and 'd' to decode. Caps are not important.
 #### Once you have chosen a mode, you must choose a method of encryption. The program will promt you to choose from a selection of various codes. 
