@@ -16,6 +16,7 @@
 - Ceasar shift uses a key number to change what letters are encrypted asked
 ## Version 2.2
 - Added ASCII cipher. ASCII is a code used in computers, but here it is displayed visually. 
+- bug where A1Z26 encodes letters as other letters instead of numbers has been fixed
 ## Version 2.3
 - Added Binary cipher
 - Small aesthetical changes to the menu
