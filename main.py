@@ -5,15 +5,17 @@
 # Name: Benjamin Oblinski
 # Description: A mock-Enigma Machine that can encode and decode messages
 import time
-from Codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, binaryEncode, binaryDecode
+from Codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, binaryEncode, binaryDecode, morseEncode, morseDecode
 
 codes = {'atbash  ': 'Simple Substitution. A = z, B = y, etc',
          'a1z26   ': 'Simple Substitution. A = 1, B = 2, etc',
          'ceasar  ': 'Simple Substitution. Uses a key to rotate an alphabet',
          'ascii   ': 'Simple Substitution. Used in computers to display text',
-         'binary  ': 'Simple Substitution. Used by computers to transmit data'}
+         'binary  ': 'Simple Substitution. Used by computers to transmit data',
+         'morse   ': 'Simple Substitution. Used to send messages with \
+pulses of light or sound'}
 
-accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary']
+accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary', 'morse']
 accpetableModes = ['E', 'D']
 
 def mainMenu():
@@ -90,6 +92,13 @@ def encode(chooseCode):
                 break
             binaryEncode(userCode)
 
+    elif chooseCode.lower() == 'morse':
+        while True:
+            userCode = input('\nPlain Text:\n')
+            if userCode == 'stop':
+                break
+            morseEncode(userCode)
+
 
 def decode(chooseCode):
     print('\nType what you want to decode')
@@ -134,6 +143,13 @@ def decode(chooseCode):
             if userCode == 'stop':
                 break
             binaryDecode(userCode)
+
+    elif chooseCode.lower() == 'morse':
+        while True:
+            userCode = input('\nCipher Text:\n')
+            if userCode == 'stop':
+                break
+            morseDecode(userCode)
 
 while True:
     mainMenu()

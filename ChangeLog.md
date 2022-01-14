@@ -20,3 +20,6 @@
 ## Version 2.3
 - Added Binary cipher
 - Small aesthetical changes to the menu
+## Version 2.4
+- Added morse code both encoding and deocding
+- added exception handling to the program in spots where it was missing before
