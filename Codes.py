@@ -3,11 +3,14 @@
 # Date created: 12/02/2021
 # Date last modified:
 # Name: Benjamin Oblinski
-# Description: A mock-Enigma Machine that can encode and decode messages
+# Description: A file that stores the cipher functions used by the main file
+
+# Alphabet used by some codes for refrence
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
             's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+# Morse code dictionary used by the morse code functions
 morseDict = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.',
              'f': '..-.', 'g': '--.', 'h': '....', 'i': '..', 'j': '.---',
              'k': '-.-', 'l': '.-..', 'm': '--', 'n': '-.', 'o': '---',
@@ -19,7 +22,9 @@ morseDict = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.',
 
 """ Atbash ENCODE """
 def atbashEncode(userCode):
+    """ A is replaced with Z, B with y """
     print('\nCipher Text:')
+    # Remove spaces and make all text lowercase
     a = userCode.lower()
     text = a.replace(' ', '')
     try:
@@ -28,7 +33,7 @@ def atbashEncode(userCode):
             y = 26 - x
             encodedText = alphabet[y]
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invlaid Entry')
         pass
     print()
@@ -36,7 +41,9 @@ def atbashEncode(userCode):
 
 """ Atbash DECODE """
 def atbashDecode(userCode):
+    """ Z is replaced with A, y with b"""
     print('\nPlain Text:')
+    # Remove spaces and make all text lowercase
     a = userCode.lower()
     text = a.replace(' ', '')
     try:
@@ -45,7 +52,7 @@ def atbashDecode(userCode):
             y = 26 - x
             encodedText = alphabet[y]
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -53,14 +60,16 @@ def atbashDecode(userCode):
 
 """ a1z26 ENCODE """
 def a1z26Encode(userCode):
+    """ A is replaced with 1, b with 2"""
     print('\nCipher Text:')
+    # Remove spaces and make all text lowercase
     a = userCode.lower()
     text = a.replace(' ','')
     try:
         for letter in text:
             encodedText = alphabet.index(letter) + 1
             print(encodedText, end=",")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -68,13 +77,16 @@ def a1z26Encode(userCode):
 
 """ a1z26 DECODE """
 def a1z26Decode(userCode):
+    """ 1 is replaced with a, 2 with b"""
     print('\nPlain Text:')
+    # Split the codes string into a 
+    # List of each individual ltter
     text = userCode.split()
     try:
         for letter in text:
             decodedText = chr(int(letter) + 96)
             print(decodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -82,8 +94,10 @@ def a1z26Decode(userCode):
 
 """ ceasar ENCODE """
 def ceasarEncode(userCode):
+    """ uses a key to rotate 2 alphabtes for encryption """
     rotation = input('Rotate aplpabet by: ')
     print('\nCipher Text:')
+    # Remove spaces and make all text lowercase
     a = userCode.lower()
     text = a.replace(' ', '')
     try:
@@ -93,7 +107,7 @@ def ceasarEncode(userCode):
                 x = x - 26
             encodedText = alphabet[x]
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('\nInvalid Entry')
         pass
     print()
@@ -101,8 +115,10 @@ def ceasarEncode(userCode):
 
 """ ceasar DECODE """
 def ceasarDecode(userCode):
+    """ uses a key to rotate 2 alphabtes for encryption """
     rotation = input('Rotate aplpabet by: ')
     print('\nPlain Text:')
+    # Remove spaces and make all text lowercase
     a = userCode.lower()
     text = a.replace(' ', '')
     try:
@@ -110,7 +126,7 @@ def ceasarDecode(userCode):
             x = alphabet.index(letter) - int(rotation)
             encodedText = alphabet[x]
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -118,13 +134,15 @@ def ceasarDecode(userCode):
 
 """ ascii ENCODE """
 def asciiEncode(userCode):
+    """ Rreplaces characters with their ASCII number """
     print('\nCipher Text:')
+    # Remove all spaces from the input text
     text = userCode.replace(' ', '')
     try:
         for letter in text:
             encodedText = ord(letter)
             print(encodedText, end=" ")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -132,13 +150,16 @@ def asciiEncode(userCode):
 
 """ ascii DECODE """
 def asciiDecode(userCode):
+    """ Replaces numbers with the letter or symbol that they coresond to """
     print('\nPlain Text:')
+    # Split the codes string into a 
+    # List of each individual ltter
     a = userCode.split()
     try:
         for letter in a:
             decodedText = chr(int(letter))
             print(decodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -146,9 +167,11 @@ def asciiDecode(userCode):
 
 """ binary ENCODE """
 def binaryEncode(userCode):
+    """ Rreplaces characters with their Binary number """
     print('\nCipher Text:')
     length = 1
     codeSplit = []
+    # Remove spaces from the userCode
     userCodeNoSpaces = userCode.replace(' ', '')
     try:
         for i in range(0, len(userCodeNoSpaces), length):
@@ -157,7 +180,7 @@ def binaryEncode(userCode):
         for letter in codeSplit:
             encodedText = bin(ord(letter)).replace('b', '')
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
@@ -165,46 +188,55 @@ def binaryEncode(userCode):
 
 """ Binary DECODE """
 def binaryDecode(userCode):
+    """ Replaces numbers with the letter or symbol that they coresond to """
     print('\nPlain Text:')
     binaryLength = 8
     codeSplit = []
     try:
+        # Split the number every 8 characters
         for i in range(0, len(userCode), binaryLength):
             a = userCode[i:i+binaryLength]
             codeSplit.append(a)
+        # Decode the numbers into letters
         for letter in codeSplit:
             number = int(letter, 2)
             encodedText = chr(number)
             print(encodedText, end="")
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()
 
 """ morse ENCODE """
 def morseEncode(userCode):
+    """ Replaces numbers with the pattern they corresond to """
     print('\nCipher Text:')
+    # Remove spaces and make all text lowercase
     userCodeNoSpaces = userCode.replace(' ', '')
     a = userCodeNoSpaces.lower()
     try:
         for letter in a:
             encodedText = morseDict[letter]
             print(encodedText, end=' ')
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
-        pass
+        
     print()
 
 """ morse DECODE """
 def morseDecode(userCode):
+    """ Replaces patterns with the number they corresond to """
     print('\nPlain Text:')
+    # Split the codes string into a 
+    # List of each individual ltter
     a = userCode.split()
+    # Flip the morse dictionary for decoding
     morseDict2 = {value:key for key, value in morseDict.items()}
     try:
         for letter in a:
             decodedText = morseDict2[letter]
             print(decodedText, end='')
-    except ValueError or KeyError:
+    except KeyError:
         print('Invalid Entry')
         pass
     print()

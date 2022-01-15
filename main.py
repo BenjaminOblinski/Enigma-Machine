@@ -4,9 +4,14 @@
 # Date last modified:
 # Name: Benjamin Oblinski
 # Description: A mock-Enigma Machine that can encode and decode messages
-import time
-from Codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, binaryEncode, binaryDecode, morseEncode, morseDecode
 
+import time
+# Import ciphers from the 'Codes' file
+from Codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, \
+ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, binaryEncode, \
+binaryDecode, morseEncode, morseDecode
+
+# Dictionary of the chiphers with short write ups
 codes = {'atbash  ': 'Simple Substitution. A = z, B = y, etc',
          'a1z26   ': 'Simple Substitution. A = 1, B = 2, etc',
          'ceasar  ': 'Simple Substitution. Uses a key to rotate an alphabet',
@@ -15,15 +20,20 @@ codes = {'atbash  ': 'Simple Substitution. A = z, B = y, etc',
          'morse   ': 'Simple Substitution. Used to send messages with \
 pulses of light or sound'}
 
+# Lists of acceptable responses 
 accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary', 'morse']
 accpetableModes = ['E', 'D']
 
 def mainMenu():
+    """ The Main function that controls the menu """
     print('################# ENIGMA MACHINE #################')
 
     # Choose mode segment of the menu
     y = False
     while y == False:
+        # Codes repeatadle asks you to choose a mode until
+        #  You give an acceptable resopnse
+        # Once you give a correct response, the code breaks out of the loop
         print('Encode or Decode E/D')
         chooseMode = input('-> ')
         if chooseMode.title() in accpetableModes:
@@ -34,12 +44,16 @@ def mainMenu():
 
     # Choose code segment of the menu
     print('Code Options:')
+    # Print options that the user can choose from
     for code in codes:
         print(f" {code} - {codes[code]}")
     print()
 
     x = False
     while x == False:
+        # Codes repeatadle asks you to choose a code until
+        # You give an acceptable resopnse
+        # Once you give a correct response, the code breaks out of the loop
         print('What code/cihper would you like to use?')
         chooseCode = input('-> ')
         if chooseCode in accpetableCodes:
@@ -49,109 +63,175 @@ def mainMenu():
             print('Invlaid Entry')
 
     if chooseMode.title() == 'E':
+        # If users selects encode mode, run the encode function
         encode(chooseCode)
     elif chooseMode.title() == 'D':
+        # If users selects decode mode, run the decode function
         decode(chooseCode)
 
 
 def encode(chooseCode):
+    """ When called the encode funtion asks the player 
+    to choose from the avalible codes in encode mode
+    """
     print('\nType what you want to encode')
 
     if chooseCode.lower() == 'atbash':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             atbashEncode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'a1z26':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             a1z26Encode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'ceasar':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             ceasarEncode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
     
     elif chooseCode.lower() == 'ascii':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             asciiEncode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'binary':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             binaryEncode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'morse':
         while True:
             userCode = input('\nPlain Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             morseEncode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
 
 def decode(chooseCode):
     print('\nType what you want to decode')
 
     if chooseCode == 'ascii':
+        # If the user is using ascii, remind them to put spaces 
+        #between each encoded letter
         print('Type the numbers with spaces between each \'letter\'')
 
+    if chooseCode == 'morse':
+        # If using morse code, remind users how to type the characters
+        print('Type the morse code with spaces between characters')
+        print('Type a long pulse as - and short pulses as .')
+
+
     if chooseCode == 'a1z26':
+        # If the user is using a1z26, remind them to put spaces 
+        #between each encoded letter
         print('Type the numbers with spaces between each \'letter\'')
 
     if chooseCode.lower() == 'atbash':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             atbashDecode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'a1z26':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             a1z26Decode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'ceasar':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             ceasarDecode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'ascii':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             asciiDecode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'binary':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             binaryDecode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
     elif chooseCode.lower() == 'morse':
         while True:
             userCode = input('\nCipher Text:\n')
+            # Ask user for input
             if userCode == 'stop':
+                # if user types stop, break from the loop
                 break
             morseDecode(userCode)
+            # Run the encode function with 
+            # the user input as the argument
 
 while True:
     mainMenu()
+    # Call main menu
     print('\n')
+    # Space
     time.sleep(1)
+    # wait 1 second
