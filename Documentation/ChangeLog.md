@@ -23,3 +23,6 @@
 ## Version 2.4
 - Added morse code both encoding and deocding
 - added exception handling to the program in spots where it was missing before
+## Version 2.5
+- Fixed exception handling for the ceasar cipher
+- Added comments and revised for pep8 compliance
