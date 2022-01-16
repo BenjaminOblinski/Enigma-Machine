@@ -25,13 +25,19 @@ def atbashEncode(userCode):
     """ A is replaced with Z, B with y """
     print('\nCipher Text:')
     # Remove spaces and make all text lowercase
+    # userCode stores the message that the user inputs
     a = userCode.lower()
+    # a stores the user code in all lowercase
     text = a.replace(' ', '')
+    # text stores the user code with no spaces and all lowercase
     try:
         for letter in text:
             # Match a to z, b to y
+            # x stores the index of the letter + 1
             x = alphabet.index(letter) + 1
+            # y stores the opposite value of the x value
             y = 26 - x
+            # encodedtext stores the userCode after it has been encoded
             encodedText = alphabet[y]
             print(encodedText, end="")
     except KeyError:
@@ -47,14 +53,19 @@ def atbashDecode(userCode):
     print('\nPlain Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
+    # a stores the user code in all lowercase
     text = a.replace(' ', '')
+    # text stores the usercode with no spaces and all lowercase
     try:
         for letter in text:
             # match z to a, y to b
             x = alphabet.index(letter) + 1
+            # x stores the index of the letter + 1
             y = 26 - x
-            encodedText = alphabet[y]
-            print(encodedText, end="")
+            # y stores the opposite value of the x value
+            decodedText = alphabet[y]
+            # decodedText stores the userCode after it has been decoded
+            print(decodedText, end="")
     except KeyError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
@@ -68,10 +79,13 @@ def a1z26Encode(userCode):
     print('\nCipher Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
+    # a stores the user code in all lowercase
     text = a.replace(' ', '')
+    # text stores the usercode with no spaces and all lowercase
     try:
         for letter in text:
             # Match each letter to its place in the alphabet
+            # encodedtext stores the userCode after it has been encoded
             encodedText = alphabet.index(letter) + 1
             print(encodedText, end=",")
     except KeyError:
@@ -88,9 +102,11 @@ def a1z26Decode(userCode):
     # Split the codes string into a
     # List of each individual ltter
     text = userCode.split()
+    # text stores the user code split into each word
     try:
         for letter in text:
             # replace a number from 1-26 with a letter
+            # decodedText stores the userCode after it has been decoded
             decodedText = chr(int(letter) + 96)
             print(decodedText, end="")
     except KeyError:
@@ -107,7 +123,9 @@ def ceasarEncode(userCode):
     print('\nCipher Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
+    # a stores the user code in all lowercase
     text = a.replace(' ', '')
+    # text stores the user code with no spaces and all lowercase
     try:
         for letter in text:
             # Match each letter to a letter from the other alphabet
@@ -115,6 +133,7 @@ def ceasarEncode(userCode):
             if x > 25:
                 x = x - 26
             encodedText = alphabet[x]
+            # encodedtext stores the userCode after it has been encoded
             print(encodedText, end="")
     except KeyError:
         # If the user inputs a symbol the code does not understand
@@ -130,13 +149,16 @@ def ceasarDecode(userCode):
     print('\nPlain Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
+    # a stores the user code in all lowercase
     text = a.replace(' ', '')
+    # text stores the user code with no spaces and all lowercase
     try:
         for letter in text:
             # Match each letter to a letter from the other alphabet
             x = alphabet.index(letter) - int(rotation)
-            encodedText = alphabet[x]
-            print(encodedText, end="")
+            # decodedText stores the userCode after it has been decoded
+            decodedText = alphabet[x]
+            print(decodedText, end="")
     except KeyError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
@@ -150,10 +172,12 @@ def asciiEncode(userCode):
     print('\nCipher Text:')
     # Remove all spaces from the input text
     text = userCode.replace(' ', '')
+    # text stores the user code with no spaces
     try:
         for letter in text:
             # Change each letter in a number
             encodedText = ord(letter)
+            # encodedtext stores the userCode after it has been encoded
             print(encodedText, end=" ")
     except KeyError:
         # If the user inputs a symbol the code does not understand
@@ -169,8 +193,10 @@ def asciiDecode(userCode):
     # Split the codes string into a
     # List of each individual ltter
     a = userCode.split()
+    # a stores the user code split into each word
     try:
         for letter in a:
+            # decodedText stores the userCode after it has been decoded
             decodedText = chr(int(letter))
             # Change each number into an letter
             print(decodedText, end="")
@@ -189,6 +215,7 @@ def binaryEncode(userCode):
     codeSplit = []
     # Remove spaces from the userCode
     userCodeNoSpaces = userCode.replace(' ', '')
+    # userCodeNoSpaces stores the usercode with no spaces
     try:
         for i in range(0, len(userCodeNoSpaces), length):
             # Change each letter into a binary number
@@ -196,6 +223,7 @@ def binaryEncode(userCode):
             codeSplit.append(a)
         for letter in codeSplit:
             encodedText = bin(ord(letter)).replace('b', '')
+            # encodedtext stores the userCode after it has been encoded
             print(encodedText, end="")
     except KeyError:
         # If the user inputs a symbol the code does not understand
@@ -209,18 +237,22 @@ def binaryDecode(userCode):
     """ Replaces numbers with the letter or symbol that they coresond to """
     print('\nPlain Text:')
     binaryLength = 8
+    # length of each section of ciphertext
     codeSplit = []
     try:
         # Split the number every 8 characters
         for i in range(0, len(userCode), binaryLength):
             # Change each number into a letter
             a = userCode[i:i+binaryLength]
+            # a stores ascii vlaue of the text
             codeSplit.append(a)
         # Decode the numbers into letters
         for letter in codeSplit:
             number = int(letter, 2)
-            encodedText = chr(number)
-            print(encodedText, end="")
+            # number stores the ascii value of the letter
+            # decodedText stores the userCode after it has been decoded
+            decodedText = chr(number)
+            print(decodedText, end="")
     except KeyError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
@@ -235,9 +267,11 @@ def morseEncode(userCode):
     # Remove spaces and make all text lowercase
     userCodeNoSpaces = userCode.replace(' ', '')
     a = userCodeNoSpaces.lower()
+    # a stores the user code in all lowercase
     try:
         for letter in a:
             # Match each letter to a pattern in the morseDict
+            # encodedtext stores the userCode after it has been encoded
             encodedText = morseDict[letter]
             print(encodedText, end=' ')
     except KeyError:
@@ -254,12 +288,14 @@ def morseDecode(userCode):
     # Split the codes string into a
     # List of each individual ltter
     a = userCode.split()
+    # a stores the user code split into each word
     # Flip the morse dictionary for decoding
     morseDict2 = {value: key for key, value in morseDict.items()}
     try:
         for letter in a:
             # Match each pattern to a letter in the morseDict
             decodedText = morseDict2[letter]
+            # decodedText stores the userCode after it has been decoded
             print(decodedText, end='')
     except KeyError:
         # If the user inputs a symbol the code does not understand

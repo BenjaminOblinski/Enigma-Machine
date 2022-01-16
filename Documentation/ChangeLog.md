@@ -26,3 +26,6 @@
 ## Version 2.5
 - Fixed exception handling for the ceasar cipher
 - Added comments and revised for pep8 compliance
+## Version 2.5.1
+- a few extra comments that explain the variables and what they do
+- file names follow a consistent naming convention

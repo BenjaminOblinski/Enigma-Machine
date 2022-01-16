@@ -8,7 +8,7 @@
 import sys
 import time
 # Import ciphers from the 'Codes' file
-from Codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, \
+from codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, \
                   ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, \
                   binaryEncode, binaryDecode, morseEncode, morseDecode
 
@@ -38,6 +38,7 @@ def mainMenu():
         # Once you give a correct response, the code breaks out of the loop
         print('Encode or Decode E/D, or type quit to exit')
         chooseMode = input('-> ')
+        # chooseMode stores the mode the user has chosen
         if chooseMode.title() in accpetableModes:
             y = True
         else:
@@ -64,6 +65,7 @@ code to return to the main menu\n')
         # Once you give a correct response, the code breaks out of the loop
         print('What code/cihper would you like to use?')
         chooseCode = input('-> ')
+        # chooseCode stores the users choice of cipher to us
         if chooseCode in accpetableCodes:
             x = True
         else:
@@ -86,6 +88,7 @@ def encode(chooseCode):
 
     if chooseCode.lower() == 'atbash':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -97,6 +100,7 @@ def encode(chooseCode):
 
     elif chooseCode.lower() == 'a1z26':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -108,6 +112,7 @@ def encode(chooseCode):
 
     elif chooseCode.lower() == 'ceasar':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -119,6 +124,7 @@ def encode(chooseCode):
 
     elif chooseCode.lower() == 'ascii':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -130,6 +136,7 @@ def encode(chooseCode):
 
     elif chooseCode.lower() == 'binary':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -141,6 +148,7 @@ def encode(chooseCode):
 
     elif chooseCode.lower() == 'morse':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nPlain Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -152,6 +160,9 @@ def encode(chooseCode):
 
 
 def decode(chooseCode):
+    """ When called the encode funtion asks the player
+    to choose from the avalible codes in decode mode
+    """
     print('\nType what you want to decode')
 
     if chooseCode == 'ascii':
@@ -171,6 +182,7 @@ def decode(chooseCode):
 
     if chooseCode.lower() == 'atbash':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -182,6 +194,7 @@ def decode(chooseCode):
 
     elif chooseCode.lower() == 'a1z26':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -193,6 +206,7 @@ def decode(chooseCode):
 
     elif chooseCode.lower() == 'ceasar':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -204,6 +218,7 @@ def decode(chooseCode):
 
     elif chooseCode.lower() == 'ascii':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -215,6 +230,7 @@ def decode(chooseCode):
 
     elif chooseCode.lower() == 'binary':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
@@ -226,6 +242,7 @@ def decode(chooseCode):
 
     elif chooseCode.lower() == 'morse':
         while True:
+            # userCode stores the message that the user inputs
             userCode = input('\nCipher Text:\n')
             # Ask user for input
             if userCode == 'stop':
