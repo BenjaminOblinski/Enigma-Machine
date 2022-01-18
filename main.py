@@ -10,19 +10,21 @@ import time
 # Import ciphers from the 'Codes' file
 from codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, \
                   ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, \
-                  binaryEncode, binaryDecode, morseEncode, morseDecode
+                  binaryEncode, binaryDecode, morseEncode, morseDecode, \
+                  vigenereEncode, vigenereDecode
 
 # Dictionary of the chiphers with short write ups
-codes = {'atbash  ': 'Simple Substitution. A = z, B = y, etc',
-         'a1z26   ': 'Simple Substitution. A = 1, B = 2, etc',
-         'ceasar  ': 'Simple Substitution. Uses a key to rotate an alphabet',
-         'ascii   ': 'Simple Substitution. Used in computers to display text',
-         'binary  ': 'Simple Substitution. Used by computers to transmit data',
-         'morse   ': 'Simple Substitution. Used to send messages with \
+codes = {'atbash  ': 'A = z, B = y, etc',
+         'a1z26   ': 'A = 1, B = 2, etc',
+         'ceasar  ': 'Uses a key to rotate an alphabet',
+         'ascii   ': 'Used in computers to display text',
+         'binary  ': 'Used by computers to transmit data',
+         'morse   ': 'Used to send messages with \
 pulses of light or sound'}
 
 # Lists of acceptable responses
-accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary', 'morse']
+accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary', \
+'morse', 'vigenere']
 accpetableModes = ['E', 'D', 'Quit']
 
 
@@ -34,7 +36,7 @@ def mainMenu():
     y = False
     while y == False:
         # Codes repeatadle asks you to choose a mode until
-        #  You give an acceptable resopnse
+        # You give an acceptable resopnse
         # Once you give a correct response, the code breaks out of the loop
         print('Encode or Decode E/D, or type quit to exit')
         chooseMode = input('-> ')
@@ -158,6 +160,18 @@ def encode(chooseCode):
             # Run the encode function with
             # the user input as the argument
 
+    elif chooseCode.lower() == 'vigenere':
+        while True:
+            # userCode stores the message that the user inputs
+            userCode = input('\nPlain Text:\n')
+            # Ask user for input
+            if userCode == 'stop':
+                # if user types stop, break from the loop
+                break
+            vigenereEncode(userCode)
+            # Run the encode function with
+            # the user input as the argument
+
 
 def decode(chooseCode):
     """ When called the encode funtion asks the player
@@ -251,6 +265,19 @@ def decode(chooseCode):
             morseDecode(userCode)
             # Run the encode function with
             # the user input as the argument
+
+    elif chooseCode.lower() == 'vigenere':
+        while True:
+            # userCode stores the message that the user inputs
+            userCode = input('\nPlain Text:\n')
+            # Ask user for input
+            if userCode == 'stop':
+                # if user types stop, break from the loop
+                break
+            vigenereDecode(userCode)
+            # Run the encode function with
+            # the user input as the argument
+
 
 while True:
     mainMenu()

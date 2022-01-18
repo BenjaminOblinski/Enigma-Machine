@@ -20,6 +20,12 @@ morseDict = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.',
              '4': '....-', '5': '.....', '6': '-....', '7': '--...',
              '8': '---..', '9': '----.', '0': '-----'}
 
+vigenereTable = {'a': 'j', 'b': 'g', 'c': 'p', 'd': 'i', 'e': 'c',
+                 'f': 's', 'g': 'b', 'h': 'v', 'i': 'n', 'j': 't',
+                 'k': 'f', 'l': 'l', 'm': 'x', 'n': 'e', 'o': 'y',
+                 'p': 'm', 'q': 'r', 'r': 'u', 's': 'k', 't': 'o',
+                 'u': 'd', 'v': 'h', 'w': 'a', 'x': 'z', 'y': 'w',
+                 'z': 'q'}
 
 def atbashEncode(userCode):
     """ A is replaced with Z, B with y """
@@ -40,6 +46,11 @@ def atbashEncode(userCode):
             # encodedtext stores the userCode after it has been encoded
             encodedText = alphabet[y]
             print(encodedText, end="")
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     except KeyError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
@@ -71,6 +82,11 @@ def atbashDecode(userCode):
         # Print invalid entry and restart the code
         print('Invalid Entry')
         pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -93,6 +109,11 @@ def a1z26Encode(userCode):
         # Print invalid entry and restart the code
         print('Invalid Entry')
         pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -113,6 +134,16 @@ def a1z26Decode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
+    except OverflowError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
         pass
     print()
 
@@ -140,6 +171,11 @@ def ceasarEncode(userCode):
         # Print invalid entry and restart the code
         print('\nInvalid Entry')
         pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -164,6 +200,11 @@ def ceasarDecode(userCode):
         # Print invalid entry and restart the code
         print('Invalid Entry')
         pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -183,6 +224,16 @@ def asciiEncode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
+    except OverflowError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
         pass
     print()
 
@@ -204,6 +255,16 @@ def asciiDecode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
+    except OverflowError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
         pass
     print()
 
@@ -229,6 +290,11 @@ def binaryEncode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
         pass
     print()
 
@@ -258,6 +324,11 @@ def binaryDecode(userCode):
         # Print invalid entry and restart the code
         print('Invalid Entry')
         pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -278,7 +349,12 @@ def morseEncode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
-
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
     print()
 
 
@@ -301,5 +377,65 @@ def morseDecode(userCode):
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
         print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
+    print()
+
+
+def vigenereEncode(userCode):
+    """ Replaces letters with the letters they corresond to """
+    print('\nCipher Text:')
+    # Remove spaces and make all text lowercase
+    userCodeNoSpaces = userCode.replace(' ', '')
+    a = userCodeNoSpaces.lower()
+    # a stores the user code in all lowercase
+    try:
+        for letter in a:
+            # Match each letter to a pattern in the vigenereTable
+            # encodedtext stores the userCode after it has been encoded
+            encodedText = vigenereTable[letter]
+            print(encodedText, end='')
+    except KeyError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
+        pass
+    print()
+
+
+def vigenereDecode(userCode):
+    """ Replaces letters with the number they corresond to """
+    print('\nPlain Text:')
+    # Split the codes string into a
+    # List of each individual ltter
+    userCodeNoSpaces = userCode.replace(' ', '')
+    a = userCodeNoSpaces.lower()
+    # a stores the user code split into each word
+    # Flip the vigenereTable for decoding
+    vigenereTable2 = {value: key for key, value in vigenereTable.items()}
+    try:
+        for letter in a:
+            # Match each pattern to a letter in the morseDict
+            decodedText = vigenereTable2[letter]
+            # decodedText stores the userCode after it has been decoded
+            print(decodedText, end='')
+    except KeyError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invalid Entry')
+        pass
+    except ValueError:
+        # If the user inputs a symbol the code does not understand
+        # Print invalid entry and restart the code
+        print('Invlaid Entry')
         pass
     print()
