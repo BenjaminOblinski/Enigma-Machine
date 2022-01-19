@@ -5,7 +5,7 @@
 # Name: Benjamin Oblinski
 # Description: A file that stores the cipher functions used by the main file
 
-# Alphabet used by some codes for refrence
+# alphabet used by some codes for refrence
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
             's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
@@ -56,7 +56,7 @@ def atbashEncode(userCode):
     except KeyError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -87,7 +87,7 @@ def atbashDecode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -114,7 +114,7 @@ def a1z26Encode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -139,20 +139,20 @@ def a1z26Decode(userCode):
         pass
     except ValueError:
         # If the user inputs a symbol the code does not understand
-        # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        # Print invlalid entry and restart the code
+        print('Invalid Entry')
         pass
     except OverflowError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
 
 def ceasarEncode(userCode):
     """ uses a key to rotate 2 alphabtes for encryption """
-    rotation = input('Rotate aplpabet by: ')
+    rotation = input('Rotate alphabte by: ')
     print('\nCipher Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
@@ -176,14 +176,14 @@ def ceasarEncode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invaild Entry')
         pass
     print()
 
 
 def ceasarDecode(userCode):
-    """ uses a key to rotate 2 alphabtes for encryption """
-    rotation = input('Rotate aplpabet by: ')
+    """ uses a key to rotate 2 alphabet for encryption """
+    rotation = input('Rotate alphabet by: ')
     print('\nPlain Text:')
     # Remove spaces and make all text lowercase
     a = userCode.lower()
@@ -205,7 +205,7 @@ def ceasarDecode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invaild Entry')
         pass
     print()
 
@@ -230,12 +230,12 @@ def asciiEncode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     except OverflowError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -261,12 +261,12 @@ def asciiDecode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     except OverflowError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -296,7 +296,7 @@ def binaryEncode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -329,7 +329,7 @@ def binaryDecode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -355,7 +355,7 @@ def morseEncode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -409,7 +409,7 @@ def vigenereEncode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
 
@@ -438,6 +438,6 @@ def vigenereDecode(userCode):
     except ValueError:
         # If the user inputs a symbol the code does not understand
         # Print invalid entry and restart the code
-        print('Invlaid Entry')
+        print('Invalid Entry')
         pass
     print()
