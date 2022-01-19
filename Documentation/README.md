@@ -10,7 +10,7 @@
 #### There are many encoder/decoder cites avalible on the internet, but most only allow you to use one specific cipher. To use a diffrent cipher you must find a new website. This program combines all the most popular codes in one place
 ### Instructions for Use
 #### Begin by choosing a mode to use the codex in. The codex is capable of encoding (taking regular words and encrypting them) and decoding (taking an encrypted message and changing it to readable english. Type 'e' to encode and 'd' to decode. Caps are not important.
-#### Once you have chosen a mode, you must choose a method of encryption. The program will promt you to choose from a selection of various codes. 
+#### Once you have chosen a mode, you must choose a method of encryption. The program will prompt you to choose from a selection of various codes. 
 #### Once you have chosen a code to use, type in what you want to encode/decode and hit enter. The codex will return the encoded/decoded message. After you encode/decode one message you will be promted to input another message. Once you have chosen a code to use, you will remain in that codes loop until you stop the program or type 'stop'. Typing 'stop' will return you to the main menu. Type 'quit' when promted to choose a mode to quit the program
 #### Some codes will ask you to give a key word. This can be any word of your choice. 
 #### Some codes will ask you to give a key. This number is index two sets of alphabets. For example, if the key is 1, a = b, b = c. If the key is 2, a = c, b = d. This can be any number, but it is reccomended it be 1-25. Note that a key of 0, 26, or any multiple of 26 will result in a code where a = a, and will not encrypt anything. 
