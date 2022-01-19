@@ -1,16 +1,16 @@
 # Course: CS 30
 # Period: 3
 # Date created: 12/02/2021
-# Date last modified:
+# Date last modified: 1/19/2022
 # Name: Benjamin Oblinski
 # Description: A codex Machine that can encode and decode messages
 
 import sys
 import time
 # Import ciphers from the 'Codes' file
-from codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode, \
-                  ceasarEncode, ceasarDecode, asciiEncode, asciiDecode, \
-                  binaryEncode, binaryDecode, morseEncode, morseDecode, \
+from codes import atbashEncode, atbashDecode, a1z26Encode, a1z26Decode,\
+                  ceasarEncode, ceasarDecode, asciiEncode, asciiDecode,\
+                  binaryEncode, binaryDecode, morseEncode, morseDecode,\
                   vigenereEncode, vigenereDecode
 
 # Dictionary of the chiphers with short write ups
@@ -20,11 +20,12 @@ codes = {'atbash  ': 'A = z, B = y, etc',
          'ascii   ': 'Used in computers to display text',
          'binary  ': 'Used by computers to transmit data',
          'morse   ': 'Used to send messages with \
-pulses of light or sound'}
+pulses of light or sound',
+         'vigenere': 'Uses many alphabets to encode messages'}
 
 # Lists of acceptable responses
-accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary', \
-'morse', 'vigenere']
+accpetableCodes = ['atbash', 'a1z26', 'ceasar', 'ascii', 'binary',
+                   'morse', 'vigenere']
 accpetableModes = ['E', 'D', 'Quit']
 
 
@@ -42,9 +43,11 @@ def mainMenu():
         chooseMode = input('-> ')
         # chooseMode stores the mode the user has chosen
         if chooseMode.title() in accpetableModes:
+            # if player gives corect repsonse, break from loop
             y = True
         else:
             y = False
+            # if not, stay in loop
             print('\nInvalid Entry\n')
         if chooseMode.lower() == 'quit':
             # IF user types quit, close the program
@@ -69,9 +72,11 @@ code to return to the main menu\n')
         chooseCode = input('-> ')
         # chooseCode stores the users choice of cipher to us
         if chooseCode in accpetableCodes:
+            # if player gives corect repsonse, break from loop
             x = True
         else:
             x = False
+            # if not, stay in loop
             print('Invlaid Entry')
 
     if chooseMode.title() == 'E':

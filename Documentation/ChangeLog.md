@@ -29,3 +29,5 @@
 ## Version 2.5.1
 - a few extra comments that explain the variables and what they do
 - file names follow a consistent naming convention
+## Version 2.6
+- Added vigenere code functions

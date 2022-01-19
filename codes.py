@@ -1,7 +1,7 @@
 # Course: CS 30
 # Period: 3
 # Date created: 12/02/2021
-# Date last modified:
+# Date last modified: 1/19/2022
 # Name: Benjamin Oblinski
 # Description: A file that stores the cipher functions used by the main file
 
@@ -20,12 +20,14 @@ morseDict = {'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.',
              '4': '....-', '5': '.....', '6': '-....', '7': '--...',
              '8': '---..', '9': '----.', '0': '-----'}
 
+# vigenere dictionary used by the morse code functions
 vigenereTable = {'a': 'j', 'b': 'g', 'c': 'p', 'd': 'i', 'e': 'c',
                  'f': 's', 'g': 'b', 'h': 'v', 'i': 'n', 'j': 't',
                  'k': 'f', 'l': 'l', 'm': 'x', 'n': 'e', 'o': 'y',
                  'p': 'm', 'q': 'r', 'r': 'u', 's': 'k', 't': 'o',
                  'u': 'd', 'v': 'h', 'w': 'a', 'x': 'z', 'y': 'w',
                  'z': 'q'}
+
 
 def atbashEncode(userCode):
     """ A is replaced with Z, B with y """
